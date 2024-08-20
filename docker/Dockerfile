@@ -27,11 +27,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg && \
     chmod 644 /etc/apt/keyrings/nodesource.gpg && \
     echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_18.x nodistro main" | tee /etc/apt/sources.list.d/nodesource.list && \
-    chmod 644 /etc/apt/trusted.gpg.d/*.gpg && \
-    chown root:_apt /etc/apt/trusted.gpg.d/*.gpg && \
-    apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 871920D1991BC93C && \
     apt-get update && \
-    apt-get install -yq --no-install-recommends nodejs && \
+    apt-get install -yq --no-install-recommends nodejs  --allow-insecure-repositories && \
     curl -LO https://github.com/yarnpkg/yarn/releases/download/v1.22.19/yarn_1.22.19_all.deb \
         && dpkg -i yarn_1.22.19_all.deb \
         && rm yarn_1.22.19_all.deb && \
