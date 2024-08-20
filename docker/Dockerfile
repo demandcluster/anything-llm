@@ -13,8 +13,7 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 # Install system dependencies
 # hadolint ignore=DL3008,DL3013
 # Correcting permissions for the keyring files
-RUN chmod 644 /etc/apt/trusted.gpg.d/*.gpg && \
-    chown root:_apt /etc/apt/trusted.gpg.d/*.gpg
+
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -yq --no-install-recommends \
@@ -29,8 +28,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     chmod 644 /etc/apt/keyrings/nodesource.gpg && \
     echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_18.x nodistro main" | tee /etc/apt/sources.list.d/nodesource.list && \
     chmod 644 /etc/apt/trusted.gpg.d/*.gpg && \
-    chown root:_apt /etc/apt/trusted.gpg.d/*.gpg
-    apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 871920D1991BC93C
+    chown root:_apt /etc/apt/trusted.gpg.d/*.gpg && \
+    apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 871920D1991BC93C && \
     apt-get update && \
     apt-get install -yq --no-install-recommends nodejs && \
     curl -LO https://github.com/yarnpkg/yarn/releases/download/v1.22.19/yarn_1.22.19_all.deb \
