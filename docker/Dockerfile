@@ -14,8 +14,8 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 # hadolint ignore=DL3008,DL3013
 # Correcting permissions for the keyring files
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get update  --allow-unauthenticated --allow-insecure-repositories && \
-    DEBIAN_FRONTEND=noninteractive apt-get install -yq --no-install-recommends  --allow-insecure-repositories \
+RUN DEBIAN_FRONTEND=noninteractive apt-get update   && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -yq --no-install-recommends   \
         unzip curl gnupg libgfortran5 libgbm1 tzdata netcat \
         libasound2 libatk1.0-0 libc6 libcairo2 libcups2 libdbus-1-3 libexpat1 libfontconfig1 \
         libgcc1 libglib2.0-0 libgtk-3-0 libnspr4 libpango-1.0-0 libx11-6 libx11-xcb1 libxcb1 \
