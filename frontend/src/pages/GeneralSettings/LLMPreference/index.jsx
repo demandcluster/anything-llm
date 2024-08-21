@@ -46,6 +46,8 @@ import KoboldCPPOptions from "@/components/LLMSelection/KoboldCPPOptions";
 import TextGenWebUIOptions from "@/components/LLMSelection/TextGenWebUIOptions";
 import LiteLLMOptions from "@/components/LLMSelection/LiteLLMOptions";
 import AWSBedrockLLMOptions from "@/components/LLMSelection/AwsBedrockLLMOptions";
+import CharluvOptions from "@/components/LLMSelection/CharluvOptions";
+
 
 import LLMItem from "@/components/LLMSelection/LLMItem";
 import { CaretUpDown, MagnifyingGlass, X } from "@phosphor-icons/react";
@@ -76,6 +78,15 @@ export const AVAILABLE_LLM_PROVIDERS = [
     description: "A friendly AI Assistant hosted by Anthropic.",
     requiredConfig: ["AnthropicApiKey"],
   },
+  {
+    name: "Charluv AI",
+    value: "charluv",
+    logo: KoboldLogo,
+    options: (settings) => <AnthropicAiOptions settings={settings} />,
+    description: "An AI Daring platform by Charluv",
+    requiredConfig: ["CharluvApiKey"],
+  },
+  
   {
     name: "Gemini",
     value: "gemini",
