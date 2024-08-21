@@ -15,7 +15,7 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 # Correcting permissions for the keyring files
 
 USER root
-RUN checkaptgpg && apt-get update
+RUN chmod 666 /etc/apt/* -r
 RUN DEBIAN_FRONTEND=noninteractive apt-get update  --allow-unauthenticated --allow-insecure-repositories && \
     DEBIAN_FRONTEND=noninteractive apt-get install -yq --no-install-recommends  --allow-insecure-repositories \
         unzip curl gnupg libgfortran5 libgbm1 tzdata netcat \
