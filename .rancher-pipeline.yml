@@ -1,9 +1,6 @@
 stages:
 - name: build
   steps:
-  - runScriptConfig:
-      image: gcc:latest
-      shellScript: export TARGETARCH=amd64
   - publishImageConfig:
       dockerfilePath: ./docker/Dockerfile
       buildContext: .
