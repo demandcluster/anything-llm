@@ -143,7 +143,19 @@ const KEY_MAPPING = {
     envKey: "HUGGING_FACE_LLM_TOKEN_LIMIT",
     checks: [nonZero],
   },
-
+  CharluvTokenLimit: {
+    envKey: "CHARLUV_TOKEN_LIMIT",
+    checks: [nonZero],
+  },
+    // KoboldCPP Settings
+    CharluvBasePath: {
+      envKey: "CHARLUV_BASE_PATH",
+      checks: [isNotEmpty, isValidURL],
+    },
+    CharluvModelPref: {
+      envKey: "CHARLUV_MODEL_PREF",
+      checks: [isNotEmpty],
+    },
   // KoboldCPP Settings
   KoboldCPPBasePath: {
     envKey: "KOBOLD_CPP_BASE_PATH",

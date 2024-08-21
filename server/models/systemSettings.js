@@ -447,6 +447,12 @@ const SystemSettings = {
       HuggingFaceLLMAccessToken: !!process.env.HUGGING_FACE_LLM_API_KEY,
       HuggingFaceLLMTokenLimit: process.env.HUGGING_FACE_LLM_TOKEN_LIMIT,
 
+
+      // KoboldCPP Keys
+      CharluvModelPref: process.env.CHARLUV_MODEL_PREF,
+      CharluvBasePath: process.env.CHARLUV_BASE_PATH,
+      CharluvTokenLimit: process.env.CHARLUV_MODEL_TOKEN_LIMIT,
+
       // KoboldCPP Keys
       KoboldCPPModelPref: process.env.KOBOLD_CPP_MODEL_PREF,
       KoboldCPPBasePath: process.env.KOBOLD_CPP_BASE_PATH,

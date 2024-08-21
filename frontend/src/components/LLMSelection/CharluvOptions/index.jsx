@@ -15,12 +15,12 @@ export default function CharluvOptions({ settings }) {
     handleAutoDetectClick,
   } = useProviderEndpointAutoDiscovery({
     provider: "charluv",
-    initialBasePath: settings?.KoboldCPPBasePath,
+    initialBasePath: settings?.CharluvBasePath,
     ENDPOINTS: CHARLUV_COMMON_URLS,
   });
 
   const [tokenLimit, setTokenLimit] = useState(
-    settings?.KoboldCPPTokenLimit || 4096
+    settings?.CharluvTokenLimit || 4096
   );
 
   const handleTokenLimitChange = (e) => {
@@ -40,7 +40,7 @@ export default function CharluvOptions({ settings }) {
           </label>
           <input
             type="number"
-            name="KoboldCPPTokenLimit"
+            name="CharluvTokenLimit"
             className="border-none bg-zinc-900 text-white placeholder:text-white/20 text-sm rounded-lg focus:outline-primary-button active:outline-primary-button outline-none block w-full p-2.5"
             placeholder="4096"
             min={1}
@@ -96,7 +96,7 @@ export default function CharluvOptions({ settings }) {
             </div>
             <input
               type="url"
-              name="KoboldCPPBasePath"
+              name="CharluvBasePath"
               className="border-none bg-zinc-900 text-white placeholder:text-white/20 text-sm rounded-lg focus:outline-primary-button active:outline-primary-button outline-none block w-full p-2.5"
               placeholder="http://127.0.0.1:5000/v1"
               value={basePathValue.value}
@@ -151,7 +151,7 @@ function CharluvModelSelection({ settings, basePath = null }) {
           Charluv <Model></Model>
         </label>
         <select
-          name="KoboldCPPModelPref"
+          name="CharluvModelPref"
           disabled={true}
           className="border-none bg-zinc-900 border-gray-500 text-white text-sm rounded-lg block w-full p-2.5"
         >
@@ -175,7 +175,7 @@ function CharluvModelSelection({ settings, basePath = null }) {
         Charluv Model
       </label>
       <select
-        name="KoboldCPPModelPref"
+        name="CharluvModelPref"
         required={true}
         className="border-none bg-zinc-900 border-gray-500 text-white text-sm rounded-lg block w-full p-2.5"
       >
