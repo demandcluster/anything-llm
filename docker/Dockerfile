@@ -1,5 +1,5 @@
 # Setup base image
-FROM ubuntu:jammy-20240627.1 AS base
+FROM ubuntu:focal-20240530 AS base
 
 # Build arguments
 ARG ARG_UID=1000
@@ -14,9 +14,7 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 # hadolint ignore=DL3008,DL3013
 # Correcting permissions for the keyring files
 
-USER root
-
-RUN DEBIAN_FRONTEND=noninteractive chmod +r /etc/apt/* -R && apt-get update  --allow-unauthenticated --allow-insecure-repositories && \
+RUN DEBIAN_FRONTEND=noninteractive apt-get update  --allow-unauthenticated --allow-insecure-repositories && \
     DEBIAN_FRONTEND=noninteractive apt-get install -yq --no-install-recommends  --allow-insecure-repositories \
         unzip curl gnupg libgfortran5 libgbm1 tzdata netcat \
         libasound2 libatk1.0-0 libc6 libcairo2 libcups2 libdbus-1-3 libexpat1 libfontconfig1 \
