@@ -163,7 +163,7 @@ function CharluvModelSelection({ settings, basePath = null }) {
         </select>
         <p className="text-xs leading-[18px] font-base text-white text-opacity-60 mt-2">
           Select the Charluv model you want to use. Models will load after
-          entering a valid KoboldCPP URL.
+          entering a valid Charluv URL.
         </p>
       </div>
     );

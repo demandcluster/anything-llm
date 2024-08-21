@@ -24,7 +24,7 @@ import TextGenWebUILogo from "@/media/llmprovider/text-generation-webui.png";
 import CohereLogo from "@/media/llmprovider/cohere.png";
 import LiteLLMLogo from "@/media/llmprovider/litellm.png";
 import AWSBedrockLogo from "@/media/llmprovider/bedrock.png";
-
+import CharluvLogo from "@/media/llmprovider/charluv.png";
 import PreLoader from "@/components/Preloader";
 import OpenAiOptions from "@/components/LLMSelection/OpenAiOptions";
 import GenericOpenAiOptions from "@/components/LLMSelection/GenericOpenAiOptions";
@@ -81,7 +81,7 @@ export const AVAILABLE_LLM_PROVIDERS = [
   {
     name: "Charluv AI",
     value: "charluv",
-    logo: KoboldLogo,
+    logo: CharluvLogo,
     options: (settings) => <CharluvOptions settings={settings} />,
     description: "An AI Daring platform by Charluv",
     requiredConfig: ["CharluvApiKey"],
