@@ -6,7 +6,7 @@ import { TagsInput } from "react-tag-input-component";
 import { Info, Warning } from "@phosphor-icons/react";
 import { Tooltip } from "react-tooltip";
 
-const DEFAULT_BRANCHES = ["main", "master"];
+const DEFAULT_BRANCHES = ["main", "trunk"];
 export default function GithubOptions() {
   const [loading, setLoading] = useState(false);
   const [repo, setRepo] = useState(null);

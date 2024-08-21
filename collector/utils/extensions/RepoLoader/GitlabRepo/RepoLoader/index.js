@@ -145,7 +145,7 @@ class GitLabRepoLoader {
   }
 
   #branchPrefSort(branches = []) {
-    const preferredSort = ["main", "master"];
+    const preferredSort = ["main", "trunk"];
     return branches.reduce((acc, branch) => {
       if (preferredSort.includes(branch)) return [branch, ...acc];
       return [...acc, branch];

@@ -54,7 +54,7 @@ class GitHubRepoLoader {
     console.log(
       "[Github Loader]: Branch not set! Auto-assigning to a default branch."
     );
-    this.branch = this.branches.includes("main") ? "main" : "master";
+    this.branch = this.branches.includes("main") ? "main" : "trunk";
     console.log(`[Github Loader]: Branch auto-assigned to ${this.branch}.`);
     return;
   }
@@ -128,7 +128,7 @@ class GitHubRepoLoader {
 
   // Sort branches to always show either main or master at the top of the result.
   #branchPrefSort(branches = []) {
-    const preferredSort = ["main", "master"];
+    const preferredSort = ["main", "trunk"];
     return branches.reduce((acc, branch) => {
       if (preferredSort.includes(branch)) return [branch, ...acc];
       return [...acc, branch];
