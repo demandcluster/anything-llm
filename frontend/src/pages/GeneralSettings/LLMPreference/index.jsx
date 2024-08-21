@@ -82,7 +82,7 @@ export const AVAILABLE_LLM_PROVIDERS = [
     name: "Charluv AI",
     value: "charluv",
     logo: KoboldLogo,
-    options: (settings) => <AnthropicAiOptions settings={settings} />,
+    options: (settings) => <CharluvOptions settings={settings} />,
     description: "An AI Daring platform by Charluv",
     requiredConfig: ["CharluvApiKey"],
   },
