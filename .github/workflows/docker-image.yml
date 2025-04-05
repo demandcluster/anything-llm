@@ -7,9 +7,7 @@ on:
     branches: [ "master" ]
 
 env:
-  # Only define static variables here
   REGISTRY: ghcr.io
-  # IMAGE_NAME is removed from here
 
 jobs:
   build_and_push:
@@ -21,6 +19,13 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      # --- Add this step ---
+      - name: Set up Docker Buildx
+        id: buildx # Optional: give it an ID if you need to reference it
+        uses: docker/setup-buildx-action@v3 # Use a recent version
+
+      # --- End of added step ---
 
       - name: Log in to GitHub Container Registry
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'
@@ -34,20 +39,21 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          # Construct the image name here, applying lower() where the function is valid
           images: ${{ env.REGISTRY }}/${{ github.repository }}
           tags: |
             type=sha,prefix=
             type=raw,value=latest,enable={{is_default_branch}}
 
       - name: Build and push Docker image
+        id: build-push # Added an id here too, just good practice
         uses: docker/build-push-action@v5
         with:
           context: .
           file: ./docker/Dockerfile
+          # The build-push action automatically uses the builder instance set up by setup-buildx-action
           push: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
-          # The tags and labels output by the meta step will use the lowercase name provided in its 'images' input
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+          # These cache settings should now work correctly
           cache-from: type=gha
           cache-to: type=gha,mode=max
