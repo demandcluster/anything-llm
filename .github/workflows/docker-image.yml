@@ -35,7 +35,7 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           # Construct the image name here, applying lower() where the function is valid
-          images: ${{ env.REGISTRY }}/${{ lower(github.repository) }}
+          images: ${{ env.REGISTRY }}/${{ github.repository }}
           tags: |
             type=sha,prefix=
             type=raw,value=latest,enable={{is_default_branch}}
