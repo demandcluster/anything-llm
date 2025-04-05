@@ -40,7 +40,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
 # Create a group and user with specific UID and GID
 RUN groupadd -g "$ARG_GID" anythingllm && \
     useradd -l -u "$ARG_UID" -m -d /app -s /bin/bash -g anythingllm anythingllm && \
-    mkdir -p /app/frontend/ /app/server/ /app/collector/ && chown -R anythingllm:anythingllm /app
+    mkdir -p /app/frontend/ /app/server/ /app/server/storage/ /app/collector/ && chown -R anythingllm:anythingllm /app \
+    touch /app/server/storage/anythingllm.db
 
 # Copy docker helper scripts
 COPY ./docker/docker-entrypoint.sh /usr/local/bin/
